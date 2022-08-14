@@ -55,30 +55,21 @@ dependencies {
 
     testImplementation "io.mockk:mockk:1.11.0"
 
-    /**
-     * for JDK 9+ compatibility
-     */
     implementation 'com.sun.xml.bind:jaxb-core:2.3.0.1'
     implementation 'com.sun.xml.bind:jaxb-impl:2.3.2'
     implementation 'javax.activation:activation:1.1.1'
     implementation 'javax.xml.bind:jaxb-api:2.3.1'
 
-    /**
-     * default for kotlin
-     */
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-reactor'
     implementation 'io.projectreactor.kotlin:reactor-kotlin-extensions'
     implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
 
-    /**
-     * default for spring web
-     */
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     // implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-config'
     implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
@@ -86,10 +77,7 @@ dependencies {
     }
     implementation 'javax.validation:validation-api'
 
-    /**
-     * swagger documentation
-     */
-    implementation "io.springfox:springfox-swagger2:$springfoxVersion"
+    implementation "io.springfox:springfox-boot-starter:$springfoxVersion"
 
     // QueryDSL
     implementation "com.querydsl:querydsl-jpa:$queryDslVersion"
