@@ -10,20 +10,13 @@ apply plugin: 'kotlin-kapt'
 group 'me.jeonguk'
 sourceCompatibility = 1.8
 
-project.archivesBaseName = "platform-svc-karyo-domain"
-version = "0.0.3"
+project.archivesBaseName = "spring-java-multi-template-domain"
+version = "0.0.1"
 bootJar.enabled = false
 jar.enabled = true
 
 repositories {
     mavenCentral()
-}
-
-dependencyManagement {
-    imports {
-        // spring 관련 library 들은 maven bom(Bill Of Materials) 에 지정된 버전들로 자동으로 타 library 의 version 이 결정되도록 한다.
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"
-    }
 }
 
 allOpen {
@@ -44,6 +37,7 @@ compileKotlin {
         jvmTarget = '1.8'
     }
 }
+
 compileTestKotlin {
     kotlinOptions {
         freeCompilerArgs = ['-Xjsr305=strict']
@@ -70,4 +64,10 @@ dependencies {
     implementation 'com.sun.xml.bind:jaxb-impl:2.3.2'
     implementation 'javax.activation:activation:1.1.1'
     implementation 'javax.xml.bind:jaxb-api:2.3.1'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"
+    }
 }

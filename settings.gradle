@@ -1,3 +1,4 @@
 rootProject.name = 'spring-java-multi-template'
 include 'domain'
+include 'service'
 
