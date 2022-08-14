@@ -1,19 +1,15 @@
-plugins {
-    id 'java'
-}
+buildscript {
+    ext.buildScriptUrl = "https://raw.githubusercontent.com/bin-e/public-config-resources/main/gradle"
+    apply from: "$buildScriptUrl/variables.gradle"
 
-group 'me.jeonguk'
-version '1.0-SNAPSHOT'
+    repositories {
+        mavenCentral()
+    }
 
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-}
-
-test {
-    useJUnitPlatform()
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
+        classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlinVersion"
+    }
 }
